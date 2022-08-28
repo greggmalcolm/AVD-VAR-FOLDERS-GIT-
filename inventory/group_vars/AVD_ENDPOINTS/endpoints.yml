@@ -1,0 +1,58 @@
+---
+port_profiles:
+  TRUNK:
+    mode: trunk
+    vlans: "1-1023"
+  VLAN_A:
+    mode: access
+    vlans: "10"
+  VLAN_B:
+    mode: access
+    vlans: "20"
+  VLAN_C:
+    mode: access
+    vlans: "110"
+  VLAN_D:
+    mode: access
+    vlans: "120"   
+  VLAN_E:
+    mode: access
+    vlans: "210"
+  VLAN_F:
+    mode: access
+    vlans: "220"   
+ 
+routers:
+  switch30:
+    adapters:
+      - endpoint_ports: [Gi0/0, Gi0/1] 
+        switch_ports: [Ethernet6, Ethernet6]
+        switches: [AVD-VEOS3, AVD-VEOS4]
+        profile: TRUNK
+        port_channel:
+          description: Switch30
+          mode: active
+          lacp_fallback:
+            mode: static
+  switch31:
+    adapters:
+      - endpoint_ports: [Gi0/0, Gi0/1] 
+        switch_ports: [Ethernet6, Ethernet6]
+        switches: [AVD-VEOS5, AVD-VEOS6]
+        profile: TRUNK
+        port_channel:
+          description: Switch31
+          mode: active
+          lacp_fallback:
+            mode: static
+  switch32:
+    adapters:
+      - endpoint_ports: [Gi0/0, Gi0/1] 
+        switch_ports: [Ethernet6, Ethernet6]
+        switches: [AVD-VEOS7, AVD-VEOS8]
+        profile: TRUNK
+        port_channel:
+          description: Switch32
+          mode: active
+          lacp_fallback:
+            mode: static

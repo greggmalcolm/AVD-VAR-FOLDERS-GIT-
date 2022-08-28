@@ -1,0 +1,39 @@
+---
+
+custom_structured_configuration_ethernet_interfaces:
+  Ethernet5:
+    eos_cli: |
+      no switchport
+    description: Routed interface to IOL22
+    shutdown: false
+    ip_address: 10.100.1.2/31
+    vrf: PROD
+    ospf_network_point_to_point: true
+    ospf_area: 0
+    ospf_cost: 100
+    
+custom_structured_configuration_vlan_interfaces:
+  Vlan10:
+    ospf_area: 0
+    ospf_cost: 100
+  Vlan20:
+    ospf_area: 0
+    ospf_cost: 100
+    
+custom_structured_configuration_router_ospf:
+  process_ids:
+    10:
+      vrf: PROD
+      passive_interface_default: true
+      router_id: 10.255.255.7
+      no_passive_interfaces:
+        - Ethernet5   
+        - vlan 10
+        - vlan 20
+        
+custom_structured_configuration_router_bgp:
+  as: 65201
+  vrfs:
+    PROD:
+      networks:
+        0.0.0.0/0:

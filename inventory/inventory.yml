@@ -1,0 +1,76 @@
+---
+all:
+  children:
+    CVP:
+      hosts:
+        cv_ztp:
+          ansible_host: 198.18.99.90
+          ansible_user: root       
+          ansible_password: Arista123!
+        cv_server:
+          ansible_httpapi_host: 198.18.99.90
+          ansible_host: 198.18.99.90
+          ansible_user: cvpadmin
+          ansible_password: Arista123!
+          ansible_connection: httpapi
+          ansible_httpapi_use_ssl: true
+          ansible_httpapi_validate_certs: false
+          ansible_network_os: eos
+          ansible_httpapi_port: 443
+          # Configuration to get Virtual Env information
+          ansible_python_interpreter: $(which python3)   
+# AVD_Fabric - EVPN Fabric running in home lab
+    AVD:
+      children:
+        AVD_FABRIC:
+          children:
+            AVD_SPINES:
+              vars:
+                type: spine
+              hosts:
+                AVD-VEOS1:
+                  ansible_host: 198.18.99.101
+                AVD-VEOS2:
+                  ansible_host: 198.18.99.102
+            AVD_L3LEAFS:
+              vars:
+                type: l3leaf
+              children:
+                AVD_POD1:
+                  hosts:
+                    AVD-VEOS3:
+                      ansible_host: 198.18.99.103
+                    AVD-VEOS4:
+                      ansible_host: 198.18.99.104
+                AVD_POD2:
+                  hosts:
+                    AVD-VEOS5:
+                      ansible_host: 198.18.99.105
+                    AVD-VEOS6:
+                      ansible_host: 198.18.99.106 
+                AVD_BORDER_LEAFS:
+                  hosts:
+                    AVD-VEOS7:
+                      ansible_host: 198.18.99.107
+                    AVD-VEOS8:
+                      ansible_host: 198.18.99.108
+ 
+          vars:
+            ansible_connection: httpapi
+            ansible_network_os: eos
+            ansible_user: ansible
+            # should use vault for passwords
+            ansible_ssh_pass: ansible
+            ansible_become: true
+            ansible_become_method: enable
+            ansible_httpapi_use_ssl: true
+            ansible_httpapi_validate_certs: false
+
+        AVD_NETWORKS:
+          children:
+            AVD_L3LEAFS:
+
+        AVD_ENDPOINTS:
+          children:
+            AVD_L3LEAFS:
+

@@ -1,0 +1,47 @@
+---
+CVP_DEVICES:
+  - fqdn: AVD-VEOS1
+    parentContainerName: AVD_SPINES
+    configlets:
+      - AVD-CONFIGLET_AVD-VEOS1
+  - fqdn: AVD-VEOS2
+    parentContainerName: AVD_SPINES
+    configlets:
+      - AVD-CONFIGLET_AVD-VEOS2
+  - fqdn: AVD-VEOS3
+    parentContainerName: AVD_POD1
+    configlets:
+      - AVD-CONFIGLET_AVD-VEOS3
+  - fqdn: AVD-VEOS4
+    parentContainerName: AVD_POD1
+    configlets:
+      - AVD-CONFIGLET_AVD-VEOS4
+  - fqdn: AVD-VEOS5
+    parentContainerName: AVD_POD2
+    configlets:
+      - AVD-CONFIGLET_AVD-VEOS5
+  - fqdn: AVD-VEOS6
+    parentContainerName: AVD_POD2
+    configlets:
+      - AVD-CONFIGLET_AVD-VEOS6
+  - fqdn: AVD-VEOS7
+    parentContainerName: AVD_BORDER_LEAFS
+    configlets:
+      - AVD-CONFIGLET_AVD-VEOS7
+  - fqdn: AVD-VEOS8
+    parentContainerName: AVD_BORDER_LEAFS
+    configlets:
+      - AVD-CONFIGLET_AVD-VEOS8
+CVP_CONTAINERS:
+  AVD_BORDER_LEAFS:
+    parentContainerName: AVD_L3LEAFS
+  AVD_FABRIC:
+    parentContainerName: Tenant
+  AVD_L3LEAFS:
+    parentContainerName: AVD_FABRIC
+  AVD_POD1:
+    parentContainerName: AVD_L3LEAFS
+  AVD_POD2:
+    parentContainerName: AVD_L3LEAFS
+  AVD_SPINES:
+    parentContainerName: AVD_FABRIC

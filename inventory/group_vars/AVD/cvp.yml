@@ -1,0 +1,49 @@
+---
+ztp:
+  default:
+    registration: 'http://198.18.100.90/ztp/bootstrap'
+    gateway: 198.18.99.15
+    nameservers:
+      - '198.18.100.160'
+  general:
+    subnets:
+      - network: 198.18.99.0
+        netmask: 255.255.255.0
+        gateway: 198.18.99.15
+        nameservers:
+          - '198.18.100.150'
+        start: 198.18.99.101
+        end: 198.18.99.119
+        lease_time: 300
+  clients:
+    # AVD/CVP Integration
+    - name: AVD-VEOS1
+      mac: '50:00:00:01:00:00'
+      ip4: 198.18.99.101
+    - name: AVD-VEOS2
+      mac: '50:00:00:02:00:00'
+      ip4: 198.18.99.102
+    - name: AVD-VEOS3
+      mac: '50:00:00:03:00:00'
+      ip4: 198.18.99.103
+    - name: AVD-VEOS4
+      mac: '50:00:00:04:00:00'
+      ip4: 198.18.99.104
+    - name: AVD-VEOS5
+      mac: '50:00:00:05:00:00'
+      ip4: 198.18.99.105
+    - name: AVD-VEOS6
+      mac: '50:00:00:06:00:00'
+      ip4: 198.18.99.106
+    - name: AVD-VEOS7
+      mac: '50:00:00:07:00:00'
+      ip4: 198.18.99.107
+    - name: AVD-VEOS8
+      mac: '50:00:00:08:00:00'
+      ip4: 198.18.99.108
+    - name: AVD-VEOS9
+      mac: '50:00:00:09:00:00'
+      ip4: 198.18.99.109
+    - name: AVD-VEOS10
+      mac: '50:00:00:10:00:00'
+      ip4: 198.18.99.110
