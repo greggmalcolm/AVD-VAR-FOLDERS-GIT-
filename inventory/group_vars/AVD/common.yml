@@ -47,10 +47,11 @@ custom_structured_configuration_ntp:
 # banners
 banners:
   motd: |
-    ######################################
-    ###                                ###
-    ###  NetDevEnv L3LS Network        ###
-    ###  Needs QOS and Multicast work  ###
-    ###                                ###
-    ######################################
+    ############################################
+    ###                                      ###
+    ###        NetDevEnv L3LS Network        ###
+    ###        SYM IRB not VLAN Aware        ###
+    ###    Configurations managed with Git   ###
+    ###                                      ###
+    ############################################
     EOF
