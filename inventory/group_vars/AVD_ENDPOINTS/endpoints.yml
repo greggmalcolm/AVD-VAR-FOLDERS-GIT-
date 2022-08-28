@@ -22,7 +22,7 @@ port_profiles:
     mode: access
     vlans: "220"   
  
-routers:
+servers:
   switch30:
     adapters:
       - endpoint_ports: [Gi0/0, Gi0/1] 
@@ -56,3 +56,26 @@ routers:
           mode: active
           lacp_fallback:
             mode: static
+
+routers:
+  IOL20:
+    adapters:
+      - endpoint_ports: [Gi0/0] 
+        switch_ports: [Ethernet5]
+        switches: [AVD-VEOS3]
+        profile: VLAN_A
+      - endpoint_ports: [Gi0/1] 
+        switch_ports: [Ethernet5]
+        switches: [AVD-VEOS4]
+        profile: VLAN_B
+  IOL21:
+    adapters:
+      - endpoint_ports: [Gi0/0] 
+        switch_ports: [Ethernet5]
+        switches: [AVD-VEOS5]
+        profile: VLAN_C
+      - endpoint_ports: [Gi0/1] 
+        switch_ports: [Ethernet5]
+        switches: [AVD-VEOS6]
+        profile: VLAN_D
+
