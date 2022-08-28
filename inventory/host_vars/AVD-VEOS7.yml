@@ -11,7 +11,18 @@ custom_structured_configuration_ethernet_interfaces:
     ospf_network_point_to_point: true
     ospf_area: 0
     ospf_cost: 100
-    
+
+  Ethernet6:
+    eos_cli: |
+      no switchport
+    description: Routed interface to Switch32
+    shutdown: false
+    ip_address: 10.100.2.2/31
+    vrf: PROD
+    ospf_network_point_to_point: true
+    ospf_area: 0
+    ospf_cost: 200
+
 custom_structured_configuration_vlan_interfaces:
   Vlan10:
     ospf_area: 0
@@ -28,6 +39,7 @@ custom_structured_configuration_router_ospf:
       router_id: 10.255.255.7
       no_passive_interfaces:
         - Ethernet5   
+        - Ethernet6
         - vlan 10
         - vlan 20
         
