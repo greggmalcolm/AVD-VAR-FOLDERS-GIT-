@@ -45,17 +45,6 @@ servers:
           mode: active
           lacp_fallback:
             mode: static
-  switch32:
-    adapters:
-      - endpoint_ports: [Gi0/0, Gi0/1] 
-        switch_ports: [Ethernet6, Ethernet6]
-        switches: [AVD-VEOS7, AVD-VEOS8]
-        profile: TRUNK
-        port_channel:
-          description: Switch32
-          mode: active
-          lacp_fallback:
-            mode: static
 
 routers:
   IOL20:
