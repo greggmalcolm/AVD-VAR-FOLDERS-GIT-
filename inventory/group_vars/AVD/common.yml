@@ -44,6 +44,9 @@ custom_structured_configuration_ntp:
     - name: 132.163.97.4 
       vrf: MGMT
 
+clock:
+  timezone: EST5EDT 
+
 # banners
 banners:
   motd: |
