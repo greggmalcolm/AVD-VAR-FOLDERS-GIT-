@@ -50,13 +50,13 @@ clock:
 # banners
 banners:
   motd: |
-############################################
-###                                      ###
-###        Date: 9-7-2022                ###
-###        NetDevEnv L3LS Network        ###
-###        SYM IRB not VLAN Aware        ###
-###    Configurations managed with Git   ###
-###                                      ###
-############################################
+    ############################################
+    ###                                      ###
+    ###        Date: 9-7-2022                ###
+    ###        NetDevEnv L3LS Network        ###
+    ###        SYM IRB not VLAN Aware        ###
+    ###    Configurations managed with Git   ###
+    ###                                      ###
+    ############################################
     EOF
 
